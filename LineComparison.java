@@ -22,5 +22,21 @@ public class LineComparison {
 			System.out.println(lineOne + " is equal to " + lineTwo);
 		else
 			System.out.println(lineOne + " is not equal to " + lineTwo);
+		
+		int endPointOne = setEndPoint(4, 3, 2, 4);
+		int endPointTwo = setEndPoint(4, 3, 4, 4);
+		String ePointOne = Integer.toString(endPointOne);
+		String ePointTwo = Integer.toString(endPointTwo);
+		if(ePointOne.compareTo(ePointTwo) == 0)
+			System.out.println("EndPoint One is equal to EndPoint Two");
+		else if(ePointOne.compareTo(ePointTwo) < 0)
+			System.out.println("EndPoint One is less than EndPoint Two");
+		else
+			System.out.println("EndPoint One is greater than EndPoint Two");	
 	}
+
+	public static int setEndPoint(int x1, int y1, int x2, int y2) {
+		return (x2+y2);
+	}
+	
 }
