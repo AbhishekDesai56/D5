@@ -2,6 +2,7 @@ package D5;
 
 public class EmoloyeeWage {
 	public final static int isFullTime = 1;
+	public final static int isPartTime = 2;
 	public final static int EMP_RATE_PER_HOUR = 20; 
     static int empHrs;
 	public static void main(String[] args) {
@@ -13,10 +14,14 @@ public class EmoloyeeWage {
 			System.out.println("Employee is present");
 			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
 			if (empCheck  == isFullTime) {
+				System.out.println("Full Time Employee");
 				empHrs = 8;
-				int empWage = empHrs * EMP_RATE_PER_HOUR;
-				System.out.println("Employee Wage: " + empWage);
-			}
+			} else if(empCheck == isPartTime) {
+				System.out.println("Part Time Employee");
+				empHrs = 4;
+			}	
 		}
+		int empWage = empHrs * EMP_RATE_PER_HOUR;
+		System.out.println("Employee Wage: " + empWage);
 	}
 }
