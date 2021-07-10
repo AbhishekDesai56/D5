@@ -5,8 +5,9 @@ public class EmoloyeeWage {
 	public final static int isPartTime = 2;
 	public final static int EMP_RATE_PER_HOUR = 20; 
 	public final static int NUMBER_OF_WORKING_DAYS = 20;
+	public final static int MAX_HRS_IN_MONTH = 100;
     static int empHrs;
-    static int totalWorkingDays = 0, totalEmpWage = 0;
+    static int totalWorkingDays = 0, totalEmpWage = 0, totalEmpHrs = 0;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int isPresent = (int) (Math.floor(Math.random() * 10) % 2);
@@ -16,7 +17,8 @@ public class EmoloyeeWage {
 			System.out.println("Employee is present");
 		}
 		
-		while(totalWorkingDays < NUMBER_OF_WORKING_DAYS) {
+		while(totalEmpHrs <= MAX_HRS_IN_MONTH &&
+				totalWorkingDays < NUMBER_OF_WORKING_DAYS) {
 			int empWage = 0;
 			totalWorkingDays++;
 			if(isPresent == 1)
@@ -29,13 +31,15 @@ public class EmoloyeeWage {
 				case isPartTime:
 					empHrs = 4;
 				default:
-					break;
+					empHrs = 0;
 				}
 			}
+			totalEmpHrs += empHrs;
 		    empWage = empHrs * EMP_RATE_PER_HOUR;
 			totalEmpWage += empWage;
 			
 		}
+		System.out.println("Total Employee Hours: " + totalEmpHrs);
 		System.out.println("Total Employee Wage: " + totalEmpWage);
 	}
 }
