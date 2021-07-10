@@ -12,14 +12,20 @@ public class EmoloyeeWage {
 			System.out.println("Employee is absent");
 		} else {
 			System.out.println("Employee is present");
+		}
+			
+		if(isPresent == 1)
+		{
 			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
-			if (empCheck  == isFullTime) {
-				System.out.println("Full Time Employee");
+			switch (empCheck) {
+			case isFullTime:
 				empHrs = 8;
-			} else if(empCheck == isPartTime) {
-				System.out.println("Part Time Employee");
+				break;
+			case isPartTime:
 				empHrs = 4;
-			}	
+			default:
+				break;
+			}
 		}
 		int empWage = empHrs * EMP_RATE_PER_HOUR;
 		System.out.println("Employee Wage: " + empWage);
